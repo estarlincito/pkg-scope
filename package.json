@@ -1,0 +1,73 @@
+{
+  "name": "pkg-scope",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A utility for detecting and installing packages with npm, pnpm, or yarn.",
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "bin": {
+    "pkg-scope": "dist/cli.js"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm clean && pnpm lint && pnpm check-types && pnpm build",
+    "release": "npm publish --access public",
+    "test": "vitest",
+    "check-types": "tsc --noEmit",
+    "lint": "ulint . --max-warnings 0",
+    "clean": "rm -rf dist",
+    "build": "pnpm vite build",
+    "dev": "pnpm vite build -w",
+    "start": "node dist/cli.js"
+  },
+  "keywords": [
+    "pkg-scope",
+    "package-manager",
+    "npm",
+    "pnpm",
+    "yarn",
+    "install",
+    "find",
+    "cli",
+    "prompt",
+    "interactive",
+    "typescript",
+    "node",
+    "esm",
+    "utility",
+    "project-setup"
+  ],
+  "author": {
+    "name": "Estarlin R",
+    "email": "dev@estarlincito.com",
+    "url": "https://estarlincito.com"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/estarlincito/pkg-scope#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/estarlincito/pkg-scope.git"
+  },
+  "bugs": {
+    "url": "https://github.com/estarlincito/pkg-scope/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "doglob": "^0.0.2",
+    "eslint": "^9.36.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "ulint": "^0.0.4",
+    "vite": "^7.1.4",
+    "vite-plugin-dts": "^4.5.4"
+  },
+  "dependencies": {
+    "askzen": "^0.0.1",
+    "errfy": "^0.0.1",
+    "lumilog": "^0.0.1"
+  }
+}
