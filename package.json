@@ -1,7 +1,7 @@
 {
   "name": "pkg-scope",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A utility for detecting and installing packages with npm, pnpm, or yarn.",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -67,7 +67,9 @@
   },
   "dependencies": {
     "askzen": "^0.0.1",
+    "doslug": "^0.0.3",
     "errfy": "^0.0.1",
-    "lumilog": "^0.0.1"
+    "lumilog": "^0.0.1",
+    "spawnix": "^0.0.1"
   }
 }

@@ -2,32 +2,31 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { askConfirm } from 'askzen';
-import { error, log, success } from 'lumilog';
-
-import { execSilent } from '@/utils/exec.js';
+import { error, log, warn } from 'lumilog';
+import { spawnStream } from 'spawnix';
 
 import { locatePackage } from './locate.js';
 
 const installCommands = {
   '-d': {
-    npm: 'npm install',
-    pnpm: 'pnpm add',
-    yarn: 'yarn add',
+    npm: ['install'],
+    pnpm: ['add'],
+    yarn: ['add'],
   },
   '-D': {
-    npm: 'npm install --save-dev',
-    pnpm: 'pnpm add --save-dev',
-    yarn: 'yarn add --dev',
+    npm: ['install', '--save-dev'],
+    pnpm: ['add', '--save-dev'],
+    yarn: ['add', '--dev'],
   },
   '-g': {
-    npm: 'npm install -g',
-    pnpm: 'pnpm add -g',
-    yarn: 'yarn global add',
+    npm: ['install', '-g'],
+    pnpm: ['add', '-g'],
+    yarn: ['global', 'add'],
   },
   '-w': {
-    npm: 'npm install --workspace',
-    pnpm: 'pnpm add -w',
-    yarn: 'yarn workspace',
+    npm: ['install', '--workspace'],
+    pnpm: ['add', '-w'],
+    yarn: ['workspace'],
   },
 };
 
@@ -38,28 +37,31 @@ export type Flag = keyof typeof installCommands;
  * Prompts to install a package if not already installed, using the detected package manager.
  * @param name - Name of the package to install.
  * @param flag - Installation flag (e.g., '-d' for default, '-D' for dev). Defaults to '-d'.
- * @returns Promise that resolves when the operation completes (no value returned).
+ * @returns Promise resolving to a Location object with the package's installation details.
  */
 export const askInstall = async (name: string, flag: Flag = '-d') => {
   const located = await locatePackage(name);
 
   if (!located.isInstalled) {
     const confirm = await askConfirm(
-      `Would you like to install '${located.name}' using ${located.packageManager}? (y/n): `,
+      `? Install ${located.name} with ${located.packageManager}? [y/N]: `,
     );
 
     if (confirm) {
-      log(
-        `Starting installation of ${located.name} with ${located.packageManager}...`,
-      );
-
       try {
-        const cmd = `${installCommands[flag][located.packageManager]} ${located.name}`;
-        await execSilent(cmd);
-        success(`${located.name} installed successfully!`);
+        const args = [
+          ...installCommands[flag][located.packageManager],
+          located.name,
+        ];
+        log(located.packageManager, ...args);
+        await spawnStream(located.packageManager, args);
+        return { ...located, flag, isInstalled: true };
       } catch (err: any) {
         error(`Failed to install ${located.name}: ${err.message}`);
       }
     }
+    warn('Skipped installation.');
   }
+
+  return { ...located, flag };
 };

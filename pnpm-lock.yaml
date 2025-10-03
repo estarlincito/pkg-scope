@@ -11,19 +11,22 @@ importers:
       askzen:
         specifier: ^0.0.1
         version: 0.0.1
+      doslug:
+        specifier: ^0.0.3
+        version: 0.0.3
       errfy:
         specifier: ^0.0.1
         version: 0.0.1
       lumilog:
         specifier: ^0.0.1
         version: 0.0.1
+      spawnix:
+        specifier: ^0.0.1
+        version: 0.0.1
     devDependencies:
       '@types/node':
         specifier: ^24.3.1
         version: 24.3.1
-      dirplus:
-        specifier: ^0.0.3
-        version: 0.0.3
       doglob:
         specifier: ^0.0.2
         version: 0.0.2
@@ -897,9 +900,6 @@ packages:
     resolution: {integrity: sha512-qE3Veg1YXzGHQhlA6jzebZN2qVf6NX+A7m7qlhCGG30dJixrAQhYOsJjsnBjJkCSmuOPpCk30145fr8FV0bzog==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  dirplus@0.0.3:
-    resolution: {integrity: sha512-Ng1YWB9GUrpS9CtUe0GR91r52VydDpyCMil8gagIUDSoRpsUmAeF8pfr16VlfxTdHNvQLWp2QV6GivQOAFlQnw==}
-
   doctrine@2.1.0:
     resolution: {integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==}
     engines: {node: '>=0.10.0'}
@@ -907,6 +907,10 @@ packages:
   doglob@0.0.2:
     resolution: {integrity: sha512-/V4/dZk9oJ/qwb1f+382+GMkuNR26lpsk2UhY+zupURdDv8lV6FhaKLv3q97zb5KCXdKViFQtkJEKgcq1LnOSQ==}
     engines: {node: '>=22.5.0'}
+    hasBin: true
+
+  doslug@0.0.3:
+    resolution: {integrity: sha512-F8dKjmyqqBbO5nAb4hgdgVm0w4mDk+27bhWY6FnG+4ky3cSuU+4y5tEJlJtAVAVljNbCIE1YS/ieigEGi4wnoA==}
     hasBin: true
 
   dunder-proto@1.0.1:
@@ -1804,6 +1808,9 @@ packages:
   source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+
+  spawnix@0.0.1:
+    resolution: {integrity: sha512-FlIKJVItnI2dhALSLkOAAwPyF2oIZNKpzwzwUL0o4cjZxg4a5Pk6R1lieTwhE8m3UzkWzhVBASqyPr9JoYxJzA==}
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -2834,13 +2841,13 @@ snapshots:
 
   detect-newline@4.0.1: {}
 
-  dirplus@0.0.3: {}
-
   doctrine@2.1.0:
     dependencies:
       esutils: 2.0.3
 
   doglob@0.0.2: {}
+
+  doslug@0.0.3: {}
 
   dunder-proto@1.0.1:
     dependencies:
@@ -3923,6 +3930,10 @@ snapshots:
   source-map-js@1.2.1: {}
 
   source-map@0.6.1: {}
+
+  spawnix@0.0.1:
+    dependencies:
+      errfy: 0.0.1
 
   sprintf-js@1.0.3: {}
 
