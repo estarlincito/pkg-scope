@@ -11,9 +11,6 @@ importers:
       askzen:
         specifier: ^0.0.1
         version: 0.0.1
-      doslug:
-        specifier: ^0.0.3
-        version: 0.0.3
       errfy:
         specifier: ^0.0.1
         version: 0.0.1
@@ -907,10 +904,6 @@ packages:
   doglob@0.0.2:
     resolution: {integrity: sha512-/V4/dZk9oJ/qwb1f+382+GMkuNR26lpsk2UhY+zupURdDv8lV6FhaKLv3q97zb5KCXdKViFQtkJEKgcq1LnOSQ==}
     engines: {node: '>=22.5.0'}
-    hasBin: true
-
-  doslug@0.0.3:
-    resolution: {integrity: sha512-F8dKjmyqqBbO5nAb4hgdgVm0w4mDk+27bhWY6FnG+4ky3cSuU+4y5tEJlJtAVAVljNbCIE1YS/ieigEGi4wnoA==}
     hasBin: true
 
   dunder-proto@1.0.1:
@@ -2846,8 +2839,6 @@ snapshots:
       esutils: 2.0.3
 
   doglob@0.0.2: {}
-
-  doslug@0.0.3: {}
 
   dunder-proto@1.0.1:
     dependencies:
